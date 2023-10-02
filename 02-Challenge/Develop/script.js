@@ -23,20 +23,17 @@ var charOptions = {
 
 
 function generatePassword(){
-
-  // var randomNumber = getARandomNumber() //this has one job so can be in the smaller scope
-  // finalPassword = finalPassword + randomNumber;   //updated final password globally so all other functions can see/add 
-
-
+  promptAnswers();
+  var password = "";
   for(var i = 0; i < lengthOfChar; i++){
-    var randomNum = Math.floor(Math.random() * charOptions);
+    var randomNum = Math.floor(Math.random() * charChoice.length);
     password = password + charChoice[randomNum];    //turns password into what was chosen for charChoice
   }
   return password;
 }
 
 
-
+//working
 function promptAnswers(){
   charChoice = [];    //to reset array so old data wasn't kept in there
   lengthOfChar = parseInt(prompt("How many characters? Enter a value from 8 to 128"));
@@ -58,12 +55,7 @@ function promptAnswers(){
   if (includeUpper===true){   //own function?
     charChoice = charChoice.concat(charOptions.uppercase);    
   }
-  return true;
 }
-
-
-
-
 
 // DO NOT TOUCH DOWN - Write password to the #password input
 function writePassword() {
